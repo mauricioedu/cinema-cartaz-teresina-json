@@ -18,9 +18,15 @@ def EmCartazMulticine():
     for dataBox in soup.find_all("li", class_="movies-list__item"):
         titleObj = dataBox.find("div", class_="movie-info").find("h2")
         imgObj = dataBox.find("picture")
+        generoObj = dataBox.find("div", class_="movie-info__details").find("span", class_="genre")
+        duracaoObj = dataBox.find("div", class_="movie-info__details").find("span", class_="length")
+        classificacaoObj = dataBox.find("div", class_="movie-info__details").find("span", class_="rating")
 
         data.append({ 'nome': titleObj.text.strip(),
-                      'image': imgObj.img['data-original'].strip()})
+                      'image': imgObj.img['data-original'].strip(),
+                      'genero' : generoObj.text.strip(),
+                      'duracao' : duracaoObj.text.strip(),
+                      'classificacao' : classificacaoObj.text.strip()})
 
 
 
@@ -37,9 +43,15 @@ def EmCartazCinemateresina():
     for dataBox in soup.find_all("li", class_="movies-list__item"):
         titleObj = dataBox.find("div", class_="movie-info").find("h2")
         imgObj = dataBox.find("picture")
+        generoObj = dataBox.find("div", class_="movie-info__details").find("span", class_="genre")
+        duracaoObj = dataBox.find("div", class_="movie-info__details").find("span", class_="length")
+        classificacaoObj = dataBox.find("div", class_="movie-info__details").find("span", class_="rating")
 
         data.append({ 'nome': titleObj.text.strip(),
-                      'image': imgObj.img['data-original'].strip()})
+                      'image': imgObj.img['data-original'].strip(),
+                      'genero' : generoObj.text.strip(),
+                      'duracao' : duracaoObj.text.strip(),
+                      'classificacao' : classificacaoObj.text.strip()})
 
 
     return jsonify({'filmes': data})
@@ -55,10 +67,15 @@ def EmCartazCinepolisriopoty():
     for dataBox in soup.find_all("li", class_="movies-list__item"):
         titleObj = dataBox.find("div", class_="movie-info").find("h2")
         imgObj = dataBox.find("picture")
+        generoObj = dataBox.find("div", class_="movie-info__details").find("span", class_="genre")
+        duracaoObj = dataBox.find("div", class_="movie-info__details").find("span", class_="length")
+        classificacaoObj = dataBox.find("div", class_="movie-info__details").find("span", class_="rating")
 
         data.append({ 'nome': titleObj.text.strip(),
-                      'image': imgObj.img['data-original'].strip()})
-
+                      'image': imgObj.img['data-original'].strip(),
+                      'genero' : generoObj.text.strip(),
+                      'duracao' : duracaoObj.text.strip(),
+                      'classificacao' : classificacaoObj.text.strip()})
 
     return jsonify({'filmes': data})
 
